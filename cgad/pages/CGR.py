@@ -227,8 +227,10 @@ if decisoes_encontradas is not None and not decisoes_encontradas.empty:
     **Órgão envolvido:** {orgao}
     """)
     with st.expander("👥 Pessoas envolvidas"):
-        for i, p in enumerate(responsaveis):
-            st.markdown(f"- **Responsável {i+1}:** {p['nome_responsavel']}  \n  Documento: `{p['documento_responsavel']}`")        
+        if responsaveis:
+            for i, p in enumerate(responsaveis):
+                if 'nome_responsavel' in p and 'documento_responsavel' in p:
+                    st.markdown(f"- **Responsável {i+1}:** {p['nome_responsavel']}  \n  Documento: `{p['documento_responsavel']}`")
 
     st.subheader("Decisões encontradas")
     for i, d in st.session_state.decisoes_encontradas.iterrows():
