@@ -180,3 +180,5 @@ class Beneficio(Base):
     MemoriaCalculo = Column(Text, nullable=True)
 
     DataRegistro = Column(Date, nullable=True)
+
+
